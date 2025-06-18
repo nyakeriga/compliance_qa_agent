@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Compliance Rule</title>
+</head>
+<body>
+    <h1>Upload Rule File</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    <p><a href="{% url 'list_alerts' %}">View Alerts</a></p>
+</body>
+</html>

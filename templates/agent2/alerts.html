@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Triggered Alerts</title>
+</head>
+<body>
+    <h1>AI News Alerts</h1>
+
+    {% if alerts %}
+        <ul>
+            {% for alert in alerts %}
+                <li>
+                    <strong>{{ alert.headline }}</strong><br>
+                    Matched: {{ alert.matched_on }}<br>
+                    Rule: {{ alert.triggered_by.title }}<br>
+                    <a href="{{ alert.url }}" target="_blank">Read more</a>
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No alerts triggered yet.</p>
+    {% endif %}
+
+    <p><a href="{% url 'upload_resource' %}">Upload New Rule</a></p>
+    <p><a href="{% url 'fetch_and_react' %}">Trigger News Scan</a></p>
+</body>
+</html>
